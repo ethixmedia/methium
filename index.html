@@ -244,6 +244,53 @@ dialog .row{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
 .err{color:var(--danger);margin-top:16px;font-size:13.5px}
 
 
+
+/* home */
+.home-hi{color:var(--muted);font-size:15px;margin:0 0 14px}
+.home{display:grid;grid-template-columns:minmax(0,2fr) minmax(280px,1fr);gap:22px;align-items:start}
+.home .span{grid-column:1/-1}
+.home section{margin:0}
+.panel{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:16px 14px 12px}
+.panel h2{padding:0 4px}
+.feat{position:relative;align-self:stretch;min-height:clamp(240px,24vw,310px);border-radius:18px;overflow:hidden;background:linear-gradient(115deg,#141416 0%,#0a0a0b 60%);border:1px solid rgba(255,255,255,.07);display:flex;align-items:flex-end;cursor:pointer}
+.feat-img{position:absolute;right:0;top:0;height:100%;width:64%;object-fit:cover;object-position:center 25%;filter:grayscale(1) contrast(1.08) brightness(.9);-webkit-mask-image:linear-gradient(to right,transparent 0,#000 48%);mask-image:linear-gradient(to right,transparent 0,#000 48%);transition:filter .4s}
+.feat:hover .feat-img{filter:grayscale(.6) contrast(1.05) brightness(.95)}
+.feat-txt{position:relative;padding:26px 28px;max-width:70%}
+.feat-k{color:var(--muted);font-size:13px}
+.feat h1{font:400 clamp(46px,6vw,86px)/.92 var(--display);margin:8px 0 10px;letter-spacing:-.02em;overflow-wrap:anywhere}
+.feat p{color:var(--muted);margin-bottom:18px;font-size:13.5px}
+.feat .actions{margin:0}
+.btn.glass{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.btn.glass:hover{background:rgba(255,255,255,.14)}
+.tr.ts{grid-template-columns:22px minmax(0,1fr) 40px 30px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.05);border-radius:10px;padding:8px 10px;margin-bottom:8px}
+.tr.ts:hover,.tr.ts.sel{background:rgba(255,255,255,.07)}
+.ts-n{color:var(--faint);font-weight:600;font-variant-numeric:tabular-nums;text-align:center}
+.tr.ts.playing .ts-n{color:var(--flame)}
+.ts-play{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:var(--text)}
+.ts-play svg{width:15px;height:15px}
+.tr.ts:hover .ts-play,.tr.ts.sel .ts-play{background:var(--flame);color:var(--ink)}
+.fans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fan{cursor:pointer;min-width:0;border-radius:12px;padding:6px;margin:-6px}
+.fan:hover,.fan.sel{background:rgba(255,255,255,.05)}
+.fan img,.fan .ph{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;background:var(--raised);display:block;filter:grayscale(.25)}
+.fan:hover img{filter:none}
+.fan b{display:block;font-weight:500;font-size:13px;margin-top:7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}
+.relrow{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(150px,15vw,190px);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}
+.rel{position:relative;scroll-snap-align:start;cursor:pointer;border-radius:14px;overflow:hidden;aspect-ratio:1;background:var(--raised);border:1px solid rgba(255,255,255,.08)}
+.rel img{width:100%;height:100%;object-fit:cover;display:block}
+.rel-label{position:absolute;left:6px;right:6px;top:6px;padding:7px 10px;border-radius:9px;background:rgba(20,20,22,.45);border:1px solid rgba(255,255,255,.14);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:#fff}
+.rel-label b{display:block;font-weight:500;font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rel-label span{font-size:11px;color:rgba(255,255,255,.7)}
+.rel .cp{right:10px;bottom:10px}
+.rel:hover .cp,.rel.sel .cp{opacity:1;transform:none}
+.rel.sel{outline:2px solid var(--flame);outline-offset:2px}
+@media (max-width:1100px){.home{grid-template-columns:minmax(0,1fr)}.fans{grid-template-columns:repeat(6,minmax(0,1fr))}}
+@media (max-width:700px){.feat-img{width:100%;-webkit-mask-image:linear-gradient(to top,transparent 0,#000 70%);mask-image:linear-gradient(to top,transparent 0,#000 70%)}.feat{min-height:320px}.feat-txt{max-width:none;padding:20px}.feat::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(0,0,0,.9) 0,rgba(0,0,0,.5) 45%,transparent 75%)}.feat-txt{z-index:2}.fans{grid-template-columns:repeat(3,minmax(0,1fr))}.tr.ts{grid-template-columns:22px minmax(0,1fr) 40px 30px}}
+/* swipe */
+#flow{transform:translateX(var(--dx,0px));transition:transform .45s cubic-bezier(.2,.8,.2,1);touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab}
+#flow.dragging{transition:none;cursor:grabbing}
+.fcard img{pointer-events:none;-webkit-user-drag:none}
+.swipe-hint{color:rgba(255,255,255,.45);font-size:12px;text-align:center;position:relative;z-index:7;margin:-8px 0 14px}
 /* now playing view */
 #npv{position:fixed;inset:0;z-index:45;overflow:hidden;background:#000;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;color:#fff}
 #npv.open{opacity:1;visibility:visible}
@@ -434,6 +481,7 @@ dialog .row{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
     <button class="glassbtn" id="npv-dev" aria-label="Playback devices"><svg viewBox="0 0 24 24" class="s"><rect x="3" y="5" width="12" height="9" rx="1.2"/><path d="M6 18h6"/><rect x="17.5" y="8" width="3.5" height="11" rx="1"/></svg></button>
   </div>
   <div class="flow" id="flow"><p class="npv-empty" id="npv-empty" hidden>Pick a song to start</p></div>
+  <p class="swipe-hint">Swipe or drag the covers to change songs</p>
   <div class="capsule">
     <div class="cap-ctl">
       <button class="icon-btn" id="c-prev" aria-label="Previous"><svg viewBox="0 0 24 24" class="f"><path d="M11.5 6.6v10.8a.6.6 0 0 1-1 .5L3.6 12.5a.6.6 0 0 1 0-1l6.9-5.4a.6.6 0 0 1 1 .5zM20.5 6.6v10.8a.6.6 0 0 1-1 .5l-6.9-5.4a.6.6 0 0 1 0-1l6.9-5.4a.6.6 0 0 1 1 .5z"/></svg></button>
@@ -655,23 +703,59 @@ function greeting(){
 }
 async function viewHome(){
   const tok = ++VT;
-  setView(`<div class="greet">${greeting()}</div><p class="loading">Loading your music</p>`);
-  const [recent, top, arts] = await Promise.allSettled([
-    api('/me/player/recently-played', { query: { limit: 40 } }),
-    api('/me/top/tracks', { query: { limit: 10, time_range: 'short_term' } }),
-    api('/me/top/artists', { query: { limit: 12, time_range: 'medium_term' } })
+  setView(`<p class="home-hi">${greeting()}</p><p class="loading">Loading your music</p>`);
+  const [ta, tt, rp] = await Promise.allSettled([
+    api('/me/top/artists', { query: { limit: 10, time_range: 'short_term' } }),
+    api('/me/top/tracks', { query: { limit: 5, time_range: 'short_term' } }),
+    api('/me/player/recently-played', { query: { limit: 40 } })
   ]);
   if (tok !== VT) return;
+  let artists = ta.value?.items || [];
+  if (artists.length < 4){
+    const m = await api('/me/top/artists', { query: { limit: 10, time_range: 'medium_term' } }).catch(() => null);
+    if (tok !== VT) return;
+    if ((m?.items || []).length > artists.length) artists = m.items;
+  }
+  const tops = tt.value?.items || [];
   const seen = new Set();
-  const rec = (recent.value?.items || []).map(x => x.track).filter(t => t && !seen.has(t.id) && seen.add(t.id)).slice(0, 8);
-  const tops = (top.value?.items || []);
-  const artists = (arts.value?.items || []);
-  let html = `<div class="greet">${greeting()}</div>`;
-  if (rec.length){ const L = newList(); html += `<section><h2>Recently played</h2>${trackRows(L, rec)}</section>`; }
-  if (tops.length){ const L = newList(); html += `<section><h2>On repeat this month</h2>${trackRows(L, tops)}</section>`; }
-  if (artists.length) html += `<section><h2>Artists you play most</h2><div class="grid">${artists.map(a => card(a, 'artist')).join('')}</div></section>`;
-  if (!rec.length && !tops.length && !artists.length)
-    html += `<div class="empty"><h3>Start with a search</h3><p>Press <kbd>/</kbd> and type a song, an artist or a mood. Your recent plays will show up here.</p></div>`;
+  const rec = (rp.value?.items || []).map(x => x.track).filter(t => t && !seen.has(t.id) && seen.add(t.id)).slice(0, 6);
+  const star = artists[0];
+  let rel = [];
+  if (star){
+    const r = await api(`/artists/${star.id}/albums`, { query: { include_groups: 'album,single', limit: 10 } }).catch(() => null);
+    if (tok !== VT) return;
+    rel = (r?.items || []).filter(Boolean).sort((a, b) => (b.release_date || '').localeCompare(a.release_date || ''));
+  }
+  if (!star && !tops.length && !rec.length){
+    setView(`<p class="home-hi">${greeting()}</p><div class="empty"><h3>Start with a search</h3><p>Press <kbd>/</kbd> and type a song, an artist or a mood. Once you’ve listened for a bit, your top artists and songs fill this page.</p></div>`);
+    return;
+  }
+  let html = `<p class="home-hi">${greeting()}</p><div class="home">`;
+  html += star ? `<section class="feat nav-item" data-href="#/artist/${esc(star.id)}" data-uri="${esc(star.uri)}">
+      ${pic(star.images, 640) ? `<img class="feat-img" alt="" src="${esc(pic(star.images, 640))}">` : ''}
+      <div class="feat-txt"><span class="feat-k">Your most played artist lately</span><h1>${esc(star.name)}</h1>
+        ${(star.genres || []).length ? `<p>${esc(star.genres.slice(0, 3).join(', '))}</p>` : '<p>&nbsp;</p>'}
+        <div class="actions"><button class="btn primary" data-playctx="${esc(star.uri)}">${I.play}Play</button><button class="btn glass" data-shufctx="${esc(star.uri)}">${I.shuffle}Shuffle</button></div></div>
+    </section>` : '<div></div>';
+  if (tops.length){
+    const L = newList();
+    html += `<section class="panel"><h2>Your top songs</h2>${tops.map(t => {
+      const i = LISTS.get(L).tracks.push(t) - 1;
+      const src = pic(t.album?.images, 64);
+      return `<div class="tr ts nav-item${t.uri === NOW.uri ? ' playing' : ''}" data-list="${L}" data-i="${i}" data-uri="${esc(t.uri)}">
+        <span class="ts-n">${i + 1}</span>
+        <div class="t-main">${src ? `<img loading="lazy" alt="" src="${esc(src)}">` : '<span class="noart"></span>'}<div class="t-txt"><span class="t-title">${esc(t.name)}</span><span class="t-sub">${artistLinks(t.artists)}</span></div></div>
+        <span class="t-dur">${fmt(t.duration_ms)}</span><span class="ts-play" aria-hidden="true">${I.play}</span></div>`;
+    }).join('')}</section>`;
+  } else html += '<div></div>';
+  if (rec.length){ const L = newList(); html += `<section class="panel"><h2>Recently played</h2>${thead()}${trackRows(L, rec)}</section>`; }
+  const more = artists.slice(1, 7);
+  if (more.length) html += `<section class="panel"><h2>More artists you love</h2><div class="fans">${more.map(a => `<div class="fan nav-item" data-href="#/artist/${esc(a.id)}" data-uri="${esc(a.uri)}">${pic(a.images, 160) ? `<img loading="lazy" alt="" src="${esc(pic(a.images, 160))}">` : '<div class="ph"></div>'}<b>${esc(a.name)}</b></div>`).join('')}</div></section>`;
+  if (rel.length) html += `<section class="span"><h2>Latest from ${esc(star.name)} <button data-goto="#/artist/${esc(star.id)}">See all</button></h2><div class="relrow">${rel.map(a => `<div class="rel nav-item" data-href="#/album/${esc(a.id)}" data-uri="${esc(a.uri)}">
+      ${pic(a.images, 300) ? `<img loading="lazy" alt="" src="${esc(pic(a.images, 300))}">` : ''}
+      <div class="rel-label"><b>${esc(a.name)}</b><span>${esc((a.release_date || '').slice(0, 4))}, ${a.album_type === 'single' ? 'Single' : 'Album'}</span></div>
+      <button class="cp" data-playctx="${esc(a.uri)}" aria-label="Play ${esc(a.name)}">${I.play}</button></div>`).join('')}</div></section>`;
+  html += '</div>';
   setView(html);
 }
 
@@ -1246,6 +1330,7 @@ function wire(){
     const rm = tgt.closest('[data-rm-recent]');
     if (rm){ store.set('recent', store.get('recent', []).filter(x => x !== rm.dataset.rmRecent)); renderSearch(); return; }
     if (tgt.closest('[data-clear-recent]')){ store.set('recent', []); $('#recent').hidden = true; if (location.hash === '#/search') renderSearch(); return; }
+    const gt = tgt.closest('[data-goto]'); if (gt){ location.hash = gt.dataset.goto; return; }
     const tabBtn = tgt.closest('#view [data-tab]');
     if (tabBtn){ S.tab = tabBtn.dataset.tab; renderTabs(); runSearch(); $('#view').scrollTop = 0; return; }
     const menuBtn = tgt.closest('[data-menu]');
@@ -1274,7 +1359,7 @@ function wire(){
         if (!$('#qpanel').hidden){ toggleQueue(false); return; }
         closeNP(); return;
       }
-      if (!inField && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')){ e.preventDefault(); skip(e.key === 'ArrowRight' ? 1 : -1); return; }
+      if (!inField && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')){ e.preventDefault(); e.key === 'ArrowRight' ? skip(1) : goPrev(); return; }
       if (e.key === 'ArrowDown' || e.key === 'ArrowUp' || (e.key === 'Enter' && ae?.tagName !== 'BUTTON')) return;
     }
     if ((e.key === '/' && !inField) || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')){ e.preventDefault(); closeNP(); q.focus(); q.select(); return; }
@@ -1462,13 +1547,55 @@ function wireNP(){
     const r = e.currentTarget.getBoundingClientRect();
     seekTo(Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * NOW.dur);
   });
+  wireSwipe();
   $('#flow').addEventListener('click', async e => {
+    if (suppressClick) return;
     const c = e.target.closest('.fcard'); if (!c) return;
     const p = +c.dataset.pos;
     if (p === 0) return togglePlay();
     if (p > 0){ for (let i = 0; i < p; i++){ await skip(1); await sleep(300); } }
-    else { if (curPos() > 3000) await seekTo(0); for (let i = 0; i < -p; i++){ await skip(-1); await sleep(300); } }
+    else { for (let i = 0; i < -p; i++){ await goPrev(); await sleep(300); } }
   });
+}
+let suppressClick = false;
+async function goPrev(){
+  // Spotify's "previous" restarts the song if it has played for more than 3 seconds, so press it twice then
+  if (curPos() > 3000){ await skip(-1); await sleep(350); }
+  await skip(-1);
+}
+function wireSwipe(){
+  const flow = $('#flow');
+  let x0 = null, dx = 0, pid = null, moved = false;
+  flow.addEventListener('pointerdown', e => {
+    if (e.button !== 0) return;
+    x0 = e.clientX; dx = 0; moved = false; pid = e.pointerId;
+    flow.classList.add('dragging');
+  });
+  flow.addEventListener('pointermove', e => {
+    if (x0 == null || e.pointerId !== pid) return;
+    dx = e.clientX - x0;
+    if (!moved && Math.abs(dx) > 8){ moved = true; try{ flow.setPointerCapture(pid); }catch{} }
+    if (moved) flow.style.setProperty('--dx', Math.max(-260, Math.min(260, dx * 0.6)) + 'px');
+  });
+  const end = () => {
+    if (x0 == null) return;
+    const d = dx; x0 = null;
+    flow.classList.remove('dragging');
+    flow.style.setProperty('--dx', '0px');
+    if (!moved) return;
+    suppressClick = true; setTimeout(() => { suppressClick = false; }, 60);
+    if (Math.abs(d) > 60){ if (d < 0) skip(1); else goPrev(); }
+  };
+  flow.addEventListener('pointerup', end);
+  flow.addEventListener('pointercancel', end);
+  let acc = 0, lock = 0;
+  flow.addEventListener('wheel', e => {
+    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+    e.preventDefault();
+    if (Date.now() < lock) return;
+    acc += e.deltaX;
+    if (Math.abs(acc) > 70){ if (acc > 0) skip(1); else goPrev(); acc = 0; lock = Date.now() + 800; }
+  }, { passive: false });
 }
 
 /* ---------- start ---------- */
